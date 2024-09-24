@@ -1,0 +1,37 @@
+{
+  "name": "js-simple-cookie",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "A simple, lightweight JavaScript API for handling cookies",
+  "browser": "dist/js.cookie.js",
+  "module": "dist/js.cookie.mjs",
+  "unpkg": "dist/js.cookie.min.js",
+  "jsdelivr": "dist/js.cookie.min.js",
+  "keywords": [
+    "cookie",
+    "cookies",
+    "js cookie"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/js.cookie.mjs",
+      "require": "./dist/js.cookie.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "dist/**/*"
+  ],
+  "scripts": {
+    "dist": "rollup -c",
+    "release": "npm run dist && release-it"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "release-it": "^17.6.0",
+    "rollup": "^4.22.4",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-license": "^3.5.3"
+  }
+}
