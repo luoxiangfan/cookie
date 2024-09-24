@@ -1,6 +1,6 @@
 {
   "name": "js-simple-cookie",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "A simple, lightweight JavaScript API for handling cookies",
   "browser": "dist/js.cookie.js",
