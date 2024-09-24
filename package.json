@@ -24,8 +24,8 @@
     "dist/**/*"
   ],
   "scripts": {
-    "dist": "rollup -c",
-    "release": "npm run dist && release-it"
+    "build": "rollup -c",
+    "release": "release-it"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
