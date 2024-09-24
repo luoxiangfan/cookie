@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "A simple, lightweight JavaScript API for handling cookies",
-  "browser": "dist/js.cookie.js",
-  "module": "dist/js.cookie.mjs",
-  "unpkg": "dist/js.cookie.min.js",
-  "jsdelivr": "dist/js.cookie.min.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
   "keywords": [
     "cookie",
     "cookies",
@@ -14,8 +14,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/js.cookie.mjs",
-      "require": "./dist/js.cookie.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
