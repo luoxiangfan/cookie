@@ -1,4 +1,4 @@
-declare module '' {
+declare module 'js-simple-cookie' {
   export type CookieOptions = {
     name: string
     value: string
@@ -19,4 +19,11 @@ declare module '' {
   export function remove(name: string, path: string, domain: string): boolean
   export function has(name: string): boolean
   export function keys(): string[]
+  export default Cookies = {
+    get,
+    set,
+    remove,
+    has,
+    keys
+  }
 }
