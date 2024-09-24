@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "release": "npm run build && release-it"
+    "release": "release-it"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
