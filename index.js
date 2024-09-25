@@ -55,7 +55,7 @@ const Cookies = {
     return true;
   },
   remove: function (name, path, domain) {
-    if (!name || !this.hasItem(name)) {
+    if (!name || !this.has(name)) {
       return false;
     }
     document.cookie =
