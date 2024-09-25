@@ -2,3 +2,5 @@ node_modules
 .sizecache.json
 *.log*
 dist
+coverage
+.eslintcache

@@ -1,5 +1,7 @@
+import { CookieOptions } from "./types";
+
 const Cookies = {
-  get: function (name) {
+  get: function (name: string) {
     return decodeURIComponent(
       document.cookie.replace(
         new RegExp(
@@ -10,7 +12,7 @@ const Cookies = {
       )
     ) || null;
   },
-  set: function (params) {
+  set: function (params: CookieOptions) {
     const {
       name, value, path, domain,
       sameSite, secure, expires,
@@ -36,7 +38,7 @@ const Cookies = {
           sExpires = "; expires=" + expires;
           break;
         case Date:
-          sExpires = "; expires=" + expires.toUTCString();
+          sExpires = "; expires=" + (expires as Date).toUTCString();
           break;
       }
     }
@@ -48,13 +50,13 @@ const Cookies = {
       (domain ? "; domain=" + domain : "") +
       (path ? "; path=" + path : "") +
       (secure ? "; secure" : "") +
-      (sameSite ? "; samesite=" + sameSite : "") +
+      (sameSite ? (typeof sameSite === 'boolean' ? "; samesite=Strict" : "; samesite=" + sameSite) : "") +
       (priority ? "; priority=" + priority : "") +
       (httpOnly ? "; httponly" : "") +
       (partitioned ? "; partitioned" : "");
     return true;
   },
-  remove: function (name, path, domain) {
+  remove: function (name: string, path?: string, domain?: string) {
     if (!name || !this.has(name)) {
       return false;
     }
@@ -65,14 +67,14 @@ const Cookies = {
       ( path ? "; path=" + path : "");
     return true;
   },
-  has: function (name) {
+  has: function (name: string) {
     return new RegExp(
       "(?:^|;\\s*)" +
       encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
       "\\s*\\="
     ).test(document.cookie);
   },
-  keys: /* optional method: you can safely remove it! */ function () {
+  keys: function () {
     var aKeys = document.cookie
       .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "")
       .split(/\s*(?:\=[^;]*)?;\s*/);
@@ -82,5 +84,7 @@ const Cookies = {
     return aKeys;
   }
 }
+
+export type { CookieOptions }
 
 export default Cookies
