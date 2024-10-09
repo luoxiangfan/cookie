@@ -6,27 +6,46 @@ A simple, lightweight JavaScript API for handling browser cookies
 * No dependency
 * TypeScript support
 
-## Usage
+## Installation
 
-Install:
+### NPM
 
 ```sh
-
-# npm
 npm install js-simple-cookie
-
-# yarn
-yarn add js-simple-cookie
-
-# pnpm
-pnpm install js-simple-cookie
-
-# bun
-bun install js-simple-cookie
 ```
+
+### CDN
+
+Alternatively, include js-simple-cookie via [jsDelivr CDN](https://www.jsdelivr.com/package/npm/js-simple-cookie) or [unpkg](https://unpkg.com/js-simple-cookie@1.0.5/dist/index.cjs).
+
+## Usage
 
 Import:
 
 ```js
 import Cookies from "js-simple-cookie";
+```
+
+Create a cookie
+
+```js
+Cookies.set('name', 'value')
+Cookies.set({ name: 'name', value: 'value' })
+Cookies.set('name', 'value', { expires: 7000 })
+Cookies.set({ name: 'name', value: 'value', expires: 7000 })
+```
+
+Read cookie:
+
+```js
+Cookies.get('name') // => 'value'
+Cookies.get('nothing') // => undefined
+```
+
+Delete cookie:
+
+```js
+Cookies.remove('name')
+Cookies.remove('name', '/')
+Cookies.remove('name', '/', '.yourdomain.com')
 ```
