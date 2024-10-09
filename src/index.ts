@@ -1,4 +1,4 @@
-import { CookieOptions } from "./types";
+import { CookieOptions, OptionalCookieOptions } from "./types";
 
 const Cookies = {
   get: function (name: string) {
@@ -12,7 +12,27 @@ const Cookies = {
       )
     ) || null;
   },
-  set: function (params: CookieOptions) {
+  set: function (...args: [string, string, OptionalCookieOptions?] | [CookieOptions]) {
+    const [parameter1, parameter2, parameter3] = args
+    const length = args.length
+    let params: CookieOptions = {
+      name: '',
+      value: ''
+    }
+    if (length === 1) {
+      params = parameter1 as CookieOptions
+    } else if (length === 2) {
+      params = {
+        name: parameter1 as string,
+        value: parameter2!
+      }
+    } else {
+      params = {
+        name: parameter1 as string,
+        value: parameter2!,
+        ...parameter3
+      }
+    }
     const {
       name, value, path, domain,
       sameSite, secure, expires,
@@ -85,6 +105,6 @@ const Cookies = {
   }
 }
 
-export type { CookieOptions }
+export type { CookieOptions, OptionalCookieOptions }
 
 export default Cookies

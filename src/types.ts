@@ -13,3 +13,5 @@ export type CookieOptions = {
   sameSite?: 'Strict' | 'Lax' | 'None' | boolean
   priority?: 'Low' | 'Medium' | 'High'
 }
+
+export type OptionalCookieOptions = Omit<CookieOptions, 'name' | 'value'>
