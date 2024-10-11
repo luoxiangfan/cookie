@@ -34,7 +34,7 @@ const Cookies = {
       }
     }
     const {
-      name, value, path, domain,
+      name, value, path = '/', domain,
       sameSite, secure, expires,
       httpOnly, partitioned, priority
     } = params
