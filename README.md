@@ -16,7 +16,7 @@ npm install js-simple-cookie
 
 ### CDN
 
-Alternatively, include js-simple-cookie via [jsDelivr CDN](https://www.jsdelivr.com/package/npm/js-simple-cookie) or [unpkg](https://unpkg.com/js-simple-cookie@1.0.5/dist/index.cjs).
+Alternatively, include js-simple-cookie via [jsDelivr CDN](https://www.jsdelivr.com/package/npm/js-simple-cookie) or [unpkg](https://unpkg.com/js-simple-cookie).
 
 ## Usage
 
