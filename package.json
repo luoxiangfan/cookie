@@ -24,21 +24,28 @@
     }
   },
   "main": "./dist/index.cjs",
+  "browser": "dist/index.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "unbuild && rollup -c",
     "lint": "eslint --cache . && prettier -c src test",
     "lint:fix": "eslint --cache . --fix && prettier -c src test -w",
     "release": "npm run build && changelogen --release --push && npm publish"
   },
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.0",
     "changelogen": "^0.5.7",
     "eslint": "^9.11.1",
     "prettier": "^3.3.3",
+    "rollup": "^4.24.0",
+    "tslib": "^2.7.0",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0"
   }
