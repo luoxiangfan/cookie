@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/luoxiangfan/cookie/compare/v1.0.6...v1.1.0)
+
+### 🚀 Enhancements
+
+- Set defalut path '/' ([f6fdcc8](https://github.com/luoxiangfan/cookie/commit/f6fdcc8))
+
+### 🩹 Fixes
+
+- Error occured when using from CDN ([bb213b2](https://github.com/luoxiangfan/cookie/commit/bb213b2))
+
+### 🏡 Chore
+
+- **readme:** Update package's unpkg link ([7737c7d](https://github.com/luoxiangfan/cookie/commit/7737c7d))
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.0.6
 
 [compare changes](https://github.com/luoxiangfan/cookie/compare/v1.0.5...v1.0.6)
