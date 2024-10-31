@@ -2,46 +2,55 @@ import { CookieOptions, OptionalCookieOptions } from "./types";
 
 const Cookies = {
   get: function (name: string) {
-    return decodeURIComponent(
-      document.cookie.replace(
-        new RegExp(
-          "(?:(?:^|.*;)\\s*" +
-          encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
-          "\\s*\\=\\s*([^;]*).*$)|^.*$"
-        ), "$1"
-      )
-    ) || null;
+    return (
+      decodeURIComponent(
+        document.cookie.replace(
+          new RegExp(
+            "(?:(?:^|.*;)\\s*" +
+              encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
+              "\\s*\\=\\s*([^;]*).*$)|^.*$",
+          ),
+          "$1",
+        ),
+      ) || null
+    );
   },
-  set: function (...args: [string, string, OptionalCookieOptions?] | [CookieOptions]) {
-    const [parameter1, parameter2, parameter3] = args
-    const length = args.length
+  set: function (
+    ...args: [string, string, OptionalCookieOptions?] | [CookieOptions]
+  ) {
+    const [parameter1, parameter2, parameter3] = args;
+    const length = args.length;
     let params: CookieOptions = {
-      name: '',
-      value: ''
-    }
+      name: "",
+      value: "",
+    };
     if (length === 1) {
-      params = parameter1 as CookieOptions
+      params = parameter1 as CookieOptions;
     } else if (length === 2) {
       params = {
         name: parameter1 as string,
-        value: parameter2!
-      }
+        value: parameter2!,
+      };
     } else {
       params = {
         name: parameter1 as string,
         value: parameter2!,
-        ...parameter3
-      }
+        ...parameter3,
+      };
     }
     const {
-      name, value, path = '/', domain,
-      sameSite, secure, expires,
-      httpOnly, partitioned, priority
-    } = params
-    if (
-      !name ||
-      /^(?:expires|max\-age|path|domain|secure)$/i.test(name)
-    ) {
+      name,
+      value,
+      path = "/",
+      domain,
+      sameSite,
+      secure,
+      expires,
+      httpOnly,
+      partitioned,
+      priority,
+    } = params;
+    if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
       return false;
     }
     let sExpires = "";
@@ -70,7 +79,11 @@ const Cookies = {
       (domain ? "; domain=" + domain : "") +
       (path ? "; path=" + path : "") +
       (secure ? "; secure" : "") +
-      (sameSite ? (typeof sameSite === 'boolean' ? "; samesite=Strict" : "; samesite=" + sameSite) : "") +
+      (sameSite
+        ? typeof sameSite === "boolean"
+          ? "; samesite=Strict"
+          : "; samesite=" + sameSite
+        : "") +
       (priority ? "; priority=" + priority : "") +
       (httpOnly ? "; httponly" : "") +
       (partitioned ? "; partitioned" : "");
@@ -83,15 +96,15 @@ const Cookies = {
     document.cookie =
       encodeURIComponent(name) +
       "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" +
-      ( domain ? "; domain=" + domain : "") +
-      ( path ? "; path=" + path : "");
+      (domain ? "; domain=" + domain : "") +
+      (path ? "; path=" + path : "");
     return true;
   },
   has: function (name: string) {
     return new RegExp(
       "(?:^|;\\s*)" +
-      encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
-      "\\s*\\="
+        encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
+        "\\s*\\=",
     ).test(document.cookie);
   },
   keys: function () {
@@ -102,9 +115,9 @@ const Cookies = {
       aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
     }
     return aKeys;
-  }
-}
+  },
+};
 
-export type { CookieOptions, OptionalCookieOptions }
+export type { CookieOptions, OptionalCookieOptions };
 
-export default Cookies
+export default Cookies;
