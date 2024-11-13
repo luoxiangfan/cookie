@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.1.1
+
+[compare changes](https://github.com/luoxiangfan/cookie/compare/v1.1.0...v1.1.1)
+
+### 🏡 Chore
+
+- Code formatted ([9a9094d](https://github.com/luoxiangfan/cookie/commit/9a9094d))
+
+### ❤️ Contributors
+
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.1.0
 
 [compare changes](https://github.com/luoxiangfan/cookie/compare/v1.0.6...v1.1.0)
