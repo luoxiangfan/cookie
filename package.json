@@ -34,6 +34,7 @@
   ],
   "scripts": {
     "build": "unbuild && rollup -c",
+    "type-check": "tsc --strict --noEmit",
     "lint": "eslint --cache . && prettier -c src",
     "lint:fix": "eslint --cache . --fix && prettier -c src -w",
     "release": "npm run build && changelogen --release --push && npm publish"
@@ -46,7 +47,7 @@
     "prettier": "^3.3.3",
     "rollup": "^4.27.4",
     "tslib": "^2.8.1",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "unbuild": "^2.0.0"
   }
 }
