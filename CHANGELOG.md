@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/luoxiangfan/cookie/compare/v1.1.1...v1.3.0)
+
+### 🚀 Enhancements
+
+- Get all visible cookies ([4073d08](https://github.com/luoxiangfan/cookie/commit/4073d08))
+
+### 🏡 Chore
+
+- **release:** V1.1.1 ([1b7fdde](https://github.com/luoxiangfan/cookie/commit/1b7fdde))
+- Type check ([4a1e37d](https://github.com/luoxiangfan/cookie/commit/4a1e37d))
+
+### ❤️ Contributors
+
+- Lxf <infiniment@163.com>
+- Luoxiangfan <infiniment@163.com>
+
 ## v1.1.1
 
 [compare changes](https://github.com/luoxiangfan/cookie/compare/v1.1.0...v1.1.1)
