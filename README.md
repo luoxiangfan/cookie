@@ -42,6 +42,12 @@ Cookies.get('name') // => 'value'
 Cookies.get('nothing') // => undefined
 ```
 
+Read all visible cookies:
+
+```js
+Cookies.get() // => { name: 'value' }
+```
+
 Delete cookie:
 
 ```js

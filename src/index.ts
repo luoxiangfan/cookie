@@ -1,19 +1,24 @@
-import { CookieOptions, OptionalCookieOptions } from "./types";
+import type { CookieOptions, OptionalCookieOptions } from "./types";
 
 const Cookies = {
-  get: function (name: string) {
-    return (
-      decodeURIComponent(
-        document.cookie.replace(
-          new RegExp(
-            "(?:(?:^|.*;)\\s*" +
-              encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
-              "\\s*\\=\\s*([^;]*).*$)|^.*$",
-          ),
-          "$1",
-        ),
-      ) || null
-    );
+  get: function (name?: string) {
+    if (typeof document === "undefined" || (arguments.length && !name)) {
+      return;
+    }
+    const cookies = document.cookie ? document.cookie.split("; ") : [];
+    const allCookies: Record<string, string> = {};
+    for (const cookie of cookies) {
+      const parts = cookie.split("=");
+      const value = decodeURIComponent(parts.slice(1).join("="));
+      const key = decodeURIComponent(parts[0]);
+      if (!(key in allCookies)) {
+        allCookies[key] = value;
+      }
+      if (name === key) {
+        break;
+      }
+    }
+    return name ? allCookies[name] : allCookies;
   },
   set: function (
     ...args: [string, string, OptionalCookieOptions?] | [CookieOptions]
