@@ -23,24 +23,24 @@ const Cookies = {
   set: function (
     ...args: [string, string, OptionalCookieOptions?] | [CookieOptions]
   ) {
-    const [parameter1, parameter2, parameter3] = args;
+    const [param1, param2, param3] = args;
     const length = args.length;
     let params: CookieOptions = {
       name: "",
       value: "",
     };
     if (length === 1) {
-      params = parameter1 as CookieOptions;
+      params = param1 as CookieOptions;
     } else if (length === 2) {
       params = {
-        name: parameter1 as string,
-        value: parameter2!,
+        name: param1 as string,
+        value: param2!,
       };
     } else {
       params = {
-        name: parameter1 as string,
-        value: parameter2!,
-        ...parameter3,
+        name: param1 as string,
+        value: param2!,
+        ...param3,
       };
     }
     const {
@@ -55,7 +55,7 @@ const Cookies = {
       partitioned,
       priority,
     } = params;
-    if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
+    if (!name || typeof document === "undefined") {
       return false;
     }
     let sExpires = "";
@@ -92,18 +92,9 @@ const Cookies = {
       (priority ? "; priority=" + priority : "") +
       (httpOnly ? "; httponly" : "") +
       (partitioned ? "; partitioned" : "");
-    return true;
   },
   remove: function (name: string, path?: string, domain?: string) {
-    if (!name || !this.has(name)) {
-      return false;
-    }
-    document.cookie =
-      encodeURIComponent(name) +
-      "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" +
-      (domain ? "; domain=" + domain : "") +
-      (path ? "; path=" + path : "");
-    return true;
+    this.set(name, "", { path, domain, expires: -1 });
   },
   has: function (name: string) {
     return new RegExp(
@@ -113,13 +104,13 @@ const Cookies = {
     ).test(document.cookie);
   },
   keys: function () {
-    var aKeys = document.cookie
+    var keys = document.cookie
       .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "")
       .split(/\s*(?:\=[^;]*)?;\s*/);
-    for (var nIdx = 0; nIdx < aKeys.length; nIdx++) {
-      aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
+    for (var i = 0; i < keys.length; i++) {
+      keys[i] = decodeURIComponent(keys[i]);
     }
-    return aKeys;
+    return keys;
   },
 };
 
