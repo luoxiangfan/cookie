@@ -9,7 +9,11 @@
   "keywords": [
     "cookie",
     "cookies",
-    "js cookie"
+    "browser",
+    "amd",
+    "commonjs",
+    "client",
+    "js-cookie"
   ],
   "exports": {
     ".": {
