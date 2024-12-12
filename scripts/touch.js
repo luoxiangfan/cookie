@@ -1,6 +1,4 @@
-import { openSync, closeSync, mkdirSync, existsSync } from 'node:fs'
+import { openSync, closeSync, mkdirSync } from 'node:fs'
 
-if (!existsSync('dist')) {
-  mkdirSync('dist')
-}
+mkdirSync('dist')
 closeSync(openSync('dist/index.js', 'w'))
