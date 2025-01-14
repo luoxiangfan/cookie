@@ -5,7 +5,7 @@ const Cookies = {
     if (typeof document === "undefined" || (arguments.length && !name)) {
       return;
     }
-    const cookies = document.cookie ? document.cookie.split("; ") : [];
+    const cookies = document?.cookie?.split("; ") ?? [];
     const allCookies: Record<string, string> = {};
     for (const cookie of cookies) {
       const parts = cookie.split("=");
