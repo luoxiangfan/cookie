@@ -104,13 +104,7 @@ const Cookies = {
     ).test(document.cookie);
   },
   keys: function () {
-    var keys = document.cookie
-      .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "")
-      .split(/\s*(?:\=[^;]*)?;\s*/);
-    for (var i = 0; i < keys.length; i++) {
-      keys[i] = decodeURIComponent(keys[i]);
-    }
-    return keys;
+    return Object.keys(this.get()!);
   },
 };
 
