@@ -97,11 +97,7 @@ const Cookies = {
     this.set(name, "", { path, domain, expires: -1 });
   },
   has: function (name: string) {
-    return new RegExp(
-      "(?:^|;\\s*)" +
-        encodeURIComponent(name).replace(/[-.+*]/g, "\\$&") +
-        "\\s*\\=",
-    ).test(document.cookie);
+    return !!this.get(name);
   },
   keys: function () {
     return Object.keys(this.get()!);
