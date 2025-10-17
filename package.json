@@ -37,7 +37,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "node-rmrf dist && node scripts/touch.js && unbuild && rollup -c",
+    "build": "node-rmrf dist && node scripts/touch.ts && unbuild && rollup -c",
     "type-check": "tsc --strict --noEmit",
     "lint": "eslint --cache . && prettier -c src",
     "lint:fix": "eslint --cache . --fix && prettier -c src -w",
