@@ -1,11 +1,6 @@
-import { readFileSync } from 'node:fs'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
-
-const loadJSON = (path) =>
-  JSON.parse(readFileSync(new URL(path, import.meta.url)))
-
-const pkg = loadJSON('./package.json')
+import pkg from './package.json' with { type: 'json' }
 
 export default [
   {
