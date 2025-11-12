@@ -2,7 +2,7 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 
 const emsPath = './dist/index.mjs'
-const browserPath = 'dist/index.js'
+const browserPath = './dist/index.js'
 
 export default [
   {
