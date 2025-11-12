@@ -37,7 +37,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "node-rmrf dist && node scripts/touch.ts && unbuild && rollup -c",
+    "build": "node-rmrf dist && node scripts/touch.ts && unbuild && npm run build:rollup",
+    "build:rollup": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "type-check": "tsc --strict --noEmit",
     "lint": "eslint . && prettier -c src",
     "lint:fix": "eslint . --fix && prettier -c src -w",

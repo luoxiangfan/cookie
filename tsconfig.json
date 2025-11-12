@@ -15,5 +15,5 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true
   },
-  "include": ["src"]
+  "include": ["src/**/*", "rollup.config.ts"]
 }
