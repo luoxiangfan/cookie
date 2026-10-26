@@ -45,8 +45,8 @@
     "release": "npm run build && npm publish"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^1.0.0",
-    "@rollup/plugin-typescript": "^12.3.0",
+    "@rollup/plugin-terser": "^1.0.2",
+    "@rollup/plugin-typescript": "^12.3.1",
     "eslint": "^10.12.0",
     "node-rmrf": "^1.2.2",
     "prettier": "^3.9.10",
